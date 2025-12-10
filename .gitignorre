@@ -1,2 +1,5 @@
 # Virtual Environment
 venv/
+#my data
+.json
+!data.example.json
