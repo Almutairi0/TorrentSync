@@ -51,14 +51,14 @@ Now Uploading ..
 upload complete
 ```
 ---
-## If you want to contribute fell free to add this improvements
+## If you want to contribute fell free to add this improvements.
 
-- Log events to a file instead of printing to console
+- Log events to a file instead of printing to console.
 
-- Use SSH keys instead of passwords for secure authentication
+- Use SSH keys instead of passwords for secure authentication.
 
-- Move or delete files locally after upload
+- Move or delete files locally after upload.
 
-- Add a configuration file (config.json)
+- Add a configuration file (config.json).
 
-- Send notifications (Telegram/Discord) after upload
+- Send notifications (Telegram/Discord) after upload.
