@@ -30,13 +30,19 @@ Install dependencies:
 ```bash
 pip install watchdog paramiko
 ```
----
-## Must configure this !!!
+**Create your config file:**
+- Copy data.example.json to data.json
+- Edit data.json and set your values:
+```
+{
+  "ip": "192.168.1.100",
+  "username": "your_ssh_username",
+  "password": "your_ssh_password",
+  "watch_path": "R:/Torrent/Completed",
+  "remote_dir": "/DATA/Media/TV"
+}
+```
 
-- path = "Your completed torrent file"          **# competed torrent folder to monitor**
-- hostname = 'put your ip'                      **# Linux server IP**
-- username = 'put your username'"               **# SSH username**
-- password = 'the password for username'        **# SSH password**
 
 ---
 ## Run the script
@@ -58,7 +64,5 @@ upload complete
 - Use SSH keys instead of passwords for secure authentication.
 
 - Move or delete files locally after upload.
-
-- Add a configuration file (config.json).
 
 - Send notifications (Telegram/Discord) after upload.
