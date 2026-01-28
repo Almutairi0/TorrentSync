@@ -11,6 +11,18 @@ from watchdog.observers import Observer
 with open('data.json', 'r') as json_file:
     data = json.load(json_file)
 
+progress_state = {"last_step": -1}
+def progress_callback(transferred, total):
+    if total == 0:
+        return
+
+        percent = int(transferred * 100 / total)
+        step = percent // 5
+        if step > progress_state["last_step"]:
+            progress_state["last_step"] = step
+            print(f"Uploading... {step * 5}%")
+
+
 def on_created(event):
     if event.is_directory:
         return
@@ -25,7 +37,7 @@ def on_created(event):
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(hostname = data["ip"],username = data["username"],password = data["password"],port=22)
     sftp_client = ssh.open_sftp() 
-    sftp_client.put(filepath, f'{data["remote_dir"]}/{os.path.basename(filepath)}')
+    sftp_client.put(filepath, f'{data["remote_dir"]}/{os.path.basename(filepath)}', callback=progress_callback)
     sftp_client.close()
     ssh.close()
     print("upload complete")
