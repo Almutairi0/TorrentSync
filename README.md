@@ -30,7 +30,7 @@ It uses:
 Install dependencies:
 
 ```bash
-pip install watchdog paramiko
+pip install watchdog paramiko requests
 ```
 **Create your config file:**
 - Copy data.example.json to data.json
